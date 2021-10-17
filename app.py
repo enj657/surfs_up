@@ -55,7 +55,7 @@ def stats(start=None, end=None):
     sel = [func.min(Measurement.tobs), func.avg(Measurement.tobs), func.max(Measurement.tobs)]
 
     if not end:
-        reults = session.query(*sel).\
+        results = session.query(*sel).\
             filter(Measurement.date >= start).all()
         temps = list(np.ravel(results))
         return jsonify(temps=temps)
@@ -67,4 +67,3 @@ def stats(start=None, end=None):
     return jsonify(temps)
 
 
-    
